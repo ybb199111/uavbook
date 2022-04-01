@@ -5,14 +5,15 @@
 %         12/15/2018 - RWB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-run('../parameters/simulation_parameters')  % load SIM: simulation parameters
+run('D:\Git\uavbook\mavsim_matlab\parameters/simulation_parameters')  % load SIM: simulation parameters
 
 % initialize messages
-addpath('../message_types'); state = msg_state();  
+addpath('D:\Git\uavbook\mavsim_matlab\message_types');
+state = msg_state();  
 
 % initialize the mav viewer
 %addpath('../chap2'); mav_view = mav_viewer();
-addpath('../chap2'); mav_view = spacecraft_viewer();
+addpath('D:\Git\uavbook\mavsim_matlab/chap2'); mav_view = spacecraft_viewer();
 
 % initialize the video writer
 VIDEO = 0;  % 1 means write video, 0 means don't write video

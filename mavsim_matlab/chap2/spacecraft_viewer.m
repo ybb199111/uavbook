@@ -11,7 +11,7 @@ classdef spacecraft_viewer < handle
         plot_initialized
     end
     %--------------------------------
-    methods
+    methods%类定义可以包含多个方法块，每个块指定不同的属性设置，这些设置适用于该特定块中的方法。可以在单独的文件中定义方法函数。
         %------constructor-----------
         function self = spacecraft_viewer
             self.body_handle = [];
@@ -85,7 +85,7 @@ classdef spacecraft_viewer < handle
             pts = pts + repmat([pn;pe;pd],1,size(pts,2));
         end
         %---------------------------
-        function [V, F, colors] = define_spacecraft(self)
+        function [V, F, colors] = define_spacecraft(self)%定义self
             % Define the vertices (physical location of vertices)
             V = [...
                 1    1    0;... % point 1

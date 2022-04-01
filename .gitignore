@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+mavsim_matlab/chap2/mavsim_chap2.m
+*.m
+mavsim_matlab/chap2/spacecraft_viewer.m
