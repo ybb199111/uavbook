@@ -26,8 +26,7 @@ function drawSpacecraft(uu)
         figure(1), clf
         [Vertices, Faces, facecolors] = defineSpacecraftBody;
         spacecraft_handle = drawSpacecraftBody(Vertices,Faces,facecolors,...
-                                               pn,pe,pd,phi,theta,psi,...
-                                               [],'normal');
+                                               pn,pe,pd,phi,theta,psi);%,...[],'normal'
         title('Spacecraft')
         xlabel('East')
         ylabel('North')
@@ -52,7 +51,7 @@ end
 %
 function handle = drawSpacecraftBody(V,F,patchcolors,...
                                      pn,pe,pd,phi,theta,psi,...
-                                     handle,mode)
+                                     handle)%,mode
   V = rotate(V', phi, theta, psi)';  % rotate spacecraft
   V = translate(V', pn, pe, pd)';  % translate spacecraft
   % transform vertices from NED to XYZ (for matlab rendering)
@@ -66,8 +65,8 @@ function handle = drawSpacecraftBody(V,F,patchcolors,...
   if isempty(handle)
   handle = patch('Vertices', V, 'Faces', F,...
                  'FaceVertexCData',patchcolors,...
-                 'FaceColor','flat',...
-                 'EraseMode', mode);
+                 'FaceColor','flat');%'EraseMode', mode
+             %从 R2014b 开始，EraseMode 属性已从所有图形对象中删除。
   else
     set(handle,'Vertices',V,'Faces',F);
     drawnow

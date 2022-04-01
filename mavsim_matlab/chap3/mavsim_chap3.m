@@ -5,13 +5,14 @@
 %         12/18/2018 - RWB
 %         1/15/2019 - RWB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-run('../parameters/simulation_parameters')  % load SIM: simulation parameters
-run('../parameters/aerosonde_parameters')  % load MAV: aircraft parameters
-
+%%
+run('D:\Git\uavbook\mavsim_matlab\parameters/simulation_parameters')  % load SIM: simulation parameters
+run('D:\Git\uavbook\mavsim_matlab\parameters/aerosonde_parameters')  % load MAV: aircraft parameters
+%%
 % initialize the mav viewer
-addpath('../chap2'); mav_view = mav_viewer();  
-addpath('../chap2'); data_view = data_viewer();
-
+addpath('D:\Git\uavbook\mavsim_matlab/chap2'); mav_view = mav_viewer();  
+addpath('D:\Git\uavbook\mavsim_matlab/chap3'); data_view = data_viewer();
+%%
 % initialize the video writer
 VIDEO = 0;  % 1 means write video, 0 means don't write video
 if VIDEO==1, video=video_writer('chap3_video.avi', SIM.ts_video); end

@@ -1,5 +1,5 @@
 % initialize the mav viewer
-addpath('../tools');  
+addpath('D:\Git\uavbook\mavsim_matlab\tools');  
 
 MAV.gravity = 9.81;
    
@@ -20,7 +20,8 @@ MAV.w0     = 0;     % initial velocity along body z-axis
 MAV.phi0   = 0;     % initial roll angle
 MAV.theta0 = 0;     % initial pitch angle
 MAV.psi0   = 0;     % initial yaw angle
-e = Euler2Quaternion(MAV.phi0, MAV.theta0, MAV.psi0);
+eul        = [MAV.phi0  MAV.theta0  MAV.psi0];%注意对应的是“ZYX”的顺序，
+e          = eul2quat(eul); %欧拉角向四元数转换 现在转换四元数使用的是“eul2quat”函数，顺序是ZYX。注意单位是rad
 MAV.e0     = e(1);  % initial quaternion
 MAV.e1     = e(2);
 MAV.e2     = e(3);
@@ -107,7 +108,7 @@ MAV.i0 = 1.5;                     % no-load (zero-torque) current (A)
 MAV.ncells = 12;
 MAV.V_max = 3.7*MAV.ncells;       % max voltage for specified number of battery cells
 
-% Coeffiecients from prop_data fit
+% Coeffiecients from prop_data fit 螺旋桨的参数
 MAV.C_Q2 = -0.01664;
 MAV.C_Q1 = 0.004970;
 MAV.C_Q0 = 0.005230;

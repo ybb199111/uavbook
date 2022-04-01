@@ -11,7 +11,7 @@ classdef msg_state
     properties
         pn        % north position in meters
         pe        % east position in meters
-        h         % altitude in meters
+        h         % altitude in meters 高度
         phi       % roll angle in radians
         theta     % pitch angle in radians
         psi       % yaw angle in radians
