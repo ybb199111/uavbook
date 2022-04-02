@@ -17,10 +17,11 @@ classdef mav_dynamics < handle
         function self = mav_dynamics(Ts, MAV)
             self.ts_simulation = Ts; % time step between function calls
             self.state = [MAV.pn0; MAV.pe0; MAV.pd0; MAV.u0; MAV.v0; MAV.w0;...
-                MAV.e0; MAV.e1; MAV.e2; MAV.e3; MAV.p0; MAV.q0; MAV.r0];
-            addpath('../message_types'); self.true_state = msg_state();
+                MAV.e0; MAV.e1; MAV.e2; MAV.e3; MAV.p0; MAV.q0; MAV.r0];%MAV的状态量位置、速度、姿态角、角速度
+            addpath('D:\Git\uavbook\mavsim_matlab\message_types');
+            self.true_state = msg_state();
         end
-        %---------------------------
+        %---------------------------%
         function self=update_state(self, forces_moments, MAV)
             %
             % Integrate the differential equations defining dynamics
@@ -55,7 +56,7 @@ classdef mav_dynamics < handle
             fx    = forces_moments(1);
             fy    = forces_moments(2);
             fz    = forces_moments(3);
-            ell   = forces_moments(4);
+            l   = forces_moments(4);
             m     = forces_moments(5);
             n     = forces_moments(6);
         

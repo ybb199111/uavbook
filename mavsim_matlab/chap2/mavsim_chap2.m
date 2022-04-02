@@ -4,6 +4,8 @@
 %     - Update history:  
 %         12/15/2018 - RWB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+clc
+clear
  % load SIM: simulation parameters加载仿真参数
 run('D:\Git\uavbook\mavsim_matlab\parameters/simulation_parameters') 
 %%

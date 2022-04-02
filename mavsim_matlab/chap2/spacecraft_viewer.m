@@ -91,30 +91,42 @@ classdef spacecraft_viewer < handle %属于handle类
         end
         %---------------------------
         function [V, F, colors] = define_spacecraft(self)%定义spacecraft的点、面由几个点组成、面的颜色
-            % Define the vertices (physical location of vertices)
+            % Define the vertices (physical location of vertices)根据自己的飞行器来进行定义
+            %参考Chap2的Design project来设计，先利用Catia设计概念的模型
             V = [...
-                1    1    0;... % point 1
-                1   -1    0;... % point 2
-                -1   -1    0;... % point 3
-                -1    1    0;... % point 4
-                1    1   -2;... % point 5
-                1   -1   -2;... % point 6
-                -1   -1   -2;... % point 7
-                -1    1   -2;... % point 8
-                1.5  1.5  0;... % point 9
-                1.5 -1.5  0;... % point 10
-                -1.5 -1.5  0;... % point 11
-                -1.5  1.5  0;... % point 12
-            ]';%注意转置符号
+                0.15    0              0;... % point 1
+                0.05   0.03        -0.05;... % point 2
+                0.05   -0.03       -0.05;... % point 3
+                0.05   -0.03        0.05;... % point 4
+                0.05   0.03         0.05;... % point 5
+                -0.35    0             0;... % point 6
+                  0        0.2         0;... % point 7
+                -0.1      0.2          0;... % point 8
+                -0.1     -0.2          0;... % point 9
+                0         -0.2         0;... % point 10
+                -0.29     0.06         0;... % point 11
+                -0.35      0.06        0;... % point 12
+                -0.35      -0.06       0;... % point 13
+                -0.29       -0.06      0;... % point 14
+                -0.29       0          0;... % point 15
+                -0.35       0      -0.09;... % point 16
+            ]'.*8;%注意转置符号
 
             % define faces as a list of vertices numbered above
             F = [...
-                    1, 2,  6,  5;...  % front
-                    4, 3,  7,  8;...  % back
-                    1, 5,  8,  4;...  % right 
-                    2, 6,  7,  3;...  % left
-                    5, 6,  7,  8;...  % top
-                    9, 10, 11, 12;... % bottom
+                    1, 2,  3;...  % head-1
+                    1, 3,  4;...  % head-2
+                    1, 2,  5;...  % head-3
+                    1, 4,  5;...  % head-4
+                    3, 4,  6;...  % body-left
+                    2, 5,  6;...  % body-right
+                    2, 3,  6;...  % body-top
+                    4, 5,  6;...  % body-down
+                    7, 8,  9;...  % wing-A
+                    7, 9, 10;...  % wing-B
+                    11,12,13;...  % tail-A
+                    11,13,14;...  % tail-B
+                    6, 15, 16;...   % vetical-tail
                     ];
 
             % define colors for each face    
@@ -125,12 +137,19 @@ classdef spacecraft_viewer < handle %属于handle类
             mycyan = [0, 1, 1];
 
             colors = [...
-                myyellow;... % front
-                myblue;...   % back
-                myblue;...   % right
-                myblue;...   % left
-                myblue;...   % top
-                mygreen;...  % bottom
+                myyellow;... % head-1
+                myblue;...   % head-2
+                myblue;...   % head-3
+                myblue;...   % head-4
+                mygreen;...  % body-left
+                mygreen;...  % body-right
+                myred;...    % body-top
+                mygreen;...  % body-down
+                mycyan;...   % wing-A
+                mycyan;...   % wing-B
+                mycyan;...   % tail-A
+                mycyan;...   % tail-B
+                myblue;...   % vetical-tail
                 ];
         end
     end

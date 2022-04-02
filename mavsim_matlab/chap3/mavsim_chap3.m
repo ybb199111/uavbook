@@ -6,11 +6,14 @@
 %         1/15/2019 - RWB
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%
+clc
+clear 
+%%
 run('D:\Git\uavbook\mavsim_matlab\parameters/simulation_parameters')  % load SIM: simulation parameters
 run('D:\Git\uavbook\mavsim_matlab\parameters/aerosonde_parameters')  % load MAV: aircraft parameters
 %%
 % initialize the mav viewer
-addpath('D:\Git\uavbook\mavsim_matlab/chap2'); mav_view = mav_viewer();  
+addpath('D:\Git\uavbook\mavsim_matlab/chap2'); mav_view = spacecraft_viewer();  
 addpath('D:\Git\uavbook\mavsim_matlab/chap3'); data_view = data_viewer();
 %%
 % initialize the video writer
